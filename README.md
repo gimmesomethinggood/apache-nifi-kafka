@@ -17,7 +17,7 @@ This project is an example that shows how it's possible to connect Apache Nifi w
 1. Clone the repository and export your IP private as a variable; Eg:
 
 ```
-export IP=$(ipconfig getifaddr en0)
+export IP=$(/sbin/ip -o -4 addr list enp0s25 | awk '{print $4}' | cut -d/ -f1)
 ```
 
 2. Run the Docker Compose:
